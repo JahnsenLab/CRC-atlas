@@ -1,3 +1,14 @@
+"""
+Script for merging per-cell-type annotations and metadata into the main AnnData object.
+
+This script loads the main AnnData object generated in 07_Manual_annotation.py,
+reads in per-cell-type annotation files generated in 09_Make_annotation_files_per_cell_type.py, 
+merges them into a unified DataFrame, and adds the annotations (including Leiden subclusters and cell types) 
+back into the main AnnData object. It also incorporates external metadata based on the PatientID column 
+and saves the updated AnnData object with the added annotations and metadata.
+
+"""
+
 ######### Load the required packages ######### 
 import os
 import pandas as pd
