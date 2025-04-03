@@ -1,3 +1,12 @@
+"""
+Script for integrating multiple .h5ad files into a single AnnData object.
+
+This script loads multiple .h5ad files from a specified directory, concatenates them into a single AnnData object, 
+performs basic preprocessing, ensuring unique variable names and filtering cells and genes, and saves 
+the concatenated object to a new .h5ad file.
+
+"""
+
 ######### Load the required packages ######### 
 import os
 import scanpy as sc
