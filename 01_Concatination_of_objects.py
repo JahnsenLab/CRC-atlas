@@ -40,14 +40,6 @@ for x in os.listdir(paperObjPath):
 # Concatenate all the AnnData objects in the list into one large object
 adata = an.concat(adata_list, join = "outer")
 
-# Convert the 'Age' column in the AnnData object's observations (adata.obs) to string type
-# This ensures consistency in data formatting (e.g., preventing numeric operations on Age)
-adata.obs['Age'] = adata.obs['Age'].astype(str)
-
-# Save the concatenated and modified AnnData object to a new file
-# The file will be saved with the name specified in 'filename' 
-adata.write_h5ad(integrationPath + filename + '.h5ad')
-
 # Make sure the variable names in the AnnData object are unique
 # This avoids conflicts when variables have the same name across different datasets
 adata.var_names_make_unique()
@@ -58,5 +50,5 @@ adata.var_names_make_unique()
 sc.pp.filter_cells(adata, min_genes = 200)
 sc.pp.filter_genes(adata, min_cells = 10)
 
-# Save the filtered AnnData object with a new filename to indicate it's processed
+# Save the filtered AnnData object
 adata.write_h5ad(integrationPath + 'adata_' + filename + "_Concatenated.h5ad")
