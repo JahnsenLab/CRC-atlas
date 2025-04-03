@@ -1,3 +1,12 @@
+"""
+Script for computing UMAP visualization and clustering on integrated single-cell RNA sequencing data.
+
+This script loads the integrated AnnData object generated in 04_scVI_integration.py,
+computes a neighborhood graph using the scVI latent representation, performs UMAP dimensionality reduction,
+applies Leiden clustering, and saves the updated dataset along with UMAP visualizations.
+
+"""
+
 ######### Load the required packages ######### 
 import scanpy as sc     
 import os               
