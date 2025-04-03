@@ -1,3 +1,12 @@
+"""
+Script for exporting cell annotations for a specific cell type and clustering resolution.
+
+This script loads the AnnData object for a specified cell type and clustering resolution, generated in 08_Subclustering.py,
+extracts the Leiden cluster assignments, and creates an annotation DataFrame. The DataFrame includes cell identifiers,
+cluster assignments, and the main cell type, and it is then saved as a CSV file for further analysis.
+
+"""
+
 ######### Load the required packages ######### 
 
 import os
@@ -37,7 +46,7 @@ cleanedAnno.rename(columns={'index': 'Cell_ids'}, inplace=True)
 # Add a column specifying the main cell type (replace underscores with spaces)
 cleanedAnno['Cell_type'] = celltype.replace('_', ' ')
 
-# Define the annotation type
+# Define the cluster type
 analysed = 'leiden'
 
 # Save the annotation DataFrame as a CSV file
