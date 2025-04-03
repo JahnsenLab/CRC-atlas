@@ -1,3 +1,11 @@
+"""
+Script for subsetting tumor and normal cells from the integrated AnnData object.
+
+This script loads the integrated AnnData object with metadata generated in 10_Add_metadata_and_cell_type_annotation_to_main_object.py,
+subsets the data into tumor and normal cell populations based on the 'SampleType' column,and saves these subsets as separate AnnData objects for further analysis.
+
+"""
+
 ######### Load the required packages ######### 
 import anndata as an
 
