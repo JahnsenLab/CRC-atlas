@@ -40,16 +40,13 @@ sc.settings.set_figure_params(dpi=80, facecolor='white')
 os.chdir(integrationPath)
 
 # Define the file name for the input AnnData object
-filename = 'adata_integrated_DEG'
+input_filename = 'adata_integrated_DEG'
 
-# Load the pre-processed AnnData object that contains cell data
-adata = an.read_h5ad(integrationPath + filename + '.h5ad')
+# Load the AnnData object 
+adata = an.read_h5ad(integrationPath + input_filename + '.h5ad')
 
 # Define the name for manual annotations in the metadata
-filename = 'Manual_annotation'
-
-# Ensure the correct dataset is being used
-adata = adata_main  # This line may be redundant or incorrect; ensure `adata_main` is defined
+result_filename = 'Manual_annotation'
 
 # Define cluster annotations based on Leiden clustering results and differentially expressed genes (DEGs)
 annotation = {
@@ -68,14 +65,13 @@ annotation = {
 }
 
 # Map Leiden clusters to their respective annotations
-adata.obs[filename] = adata.obs.leiden.map(annotation)
+adata.obs[result_filename] = adata.obs.leiden.map(annotation)
 
 # Set the working directory to ensure figures are saved in the correct folder
 os.chdir(resultsPath)
 
 # Plot UMAP with the manual annotations
-sc.pl.umap(adata, color=[filename], frameon=False, save='_integrated_' + filename + '.pdf')
+sc.pl.umap(adata, color=[result_filename], frameon=False, save='_integrated_' + result_filename + '.pdf')
 
-# Save the annotated dataset for future analysis
-results_file = integrationPath + 'adata_' + filename + '.h5ad'
-adata.write(results_file)
+# Save the annotated dataset 
+adata.write(integrationPath + 'adata_' + result_filename + '.h5ad')
