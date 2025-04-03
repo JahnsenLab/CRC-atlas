@@ -39,8 +39,11 @@ sc.settings.set_figure_params(dpi=80, facecolor='white')
 # Change working directory to where the data is stored
 os.chdir(integrationPath)
 
+# Define the file name for the input AnnData object
+filename = 'adata_integrated_DEG'
+
 # Load the pre-processed AnnData object that contains cell data
-adata = an.read_h5ad(integrationPath + 'adata_automated_annotation_Cells_Intestinal_Tract.h5ad')
+adata = an.read_h5ad(integrationPath + filename + '.h5ad')
 
 # Define the name for manual annotations in the metadata
 filename = 'Manual_annotation'
