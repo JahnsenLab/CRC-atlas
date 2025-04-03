@@ -1,3 +1,14 @@
+"""
+Script for analyzing single-cell RNA sequencing data by subsetting a specific cell type, 
+performing clustering, and identifying differentially expressed genes (DEGs).
+
+This script loads the manually annotated AnnData object generated in 07_Manual_annotation.py,
+subsets the data based on a specified cell type, scales the gene expression, performs PCA, clustering,
+and generates UMAP visualizations. It also computes average gene expression per cluster and performs
+DEG analysis using the Wilcoxon test, saving results in Excel files and updating the AnnData object.
+
+"""
+
 ######### Load the required packages ######### 
 
 import os
@@ -14,7 +25,7 @@ resultsPath = "/Path/To/Save/Plots/And/Figures/"
 integrationPath = "/Path/To/Store/Integrated/AnnData/"
 
 # Path to the directory where the per cell type subdirectories will be stored
-technicalPath = "Path/To/Store/Per/Cell/Type/Subdirectories/"
+technicalPath = "/Path/To/Store/Per/Cell/Type/Subdirectories/"
 
 ######### Code #########
 
@@ -31,7 +42,7 @@ if not os.path.exists(celltypePath):
    os.makedirs(celltypePath)
 
 # Subset the main object based on the selected cell type
-adata = adata_main[adata_main.obs['First_manual_annotation'].isin([celltype.replace('_', ' ')])] 
+adata = adata_main[adata_main.obs['Manual_annotation'].isin([celltype.replace('_', ' ')])] 
 # `.replace('_', ' ')` ensures consistency in cell type names
 
 # Check the unique values in the annotation to confirm successful subsetting
@@ -90,7 +101,7 @@ obs = pd.DataFrame(obs, columns=gene_ids, index=adata.obs['leiden'])
 average_obs = obs.groupby(level=0).mean()
 
 # Transpose and save the average expression to Excel files
-average_obs.T.to_excel(resExcelPath + celltype + '_' + file_name + '_res_' + str(res) + '_average_expression.xlsx')
+average_obs.T.to_excel(resExcelPath + celltype + '_res_' + str(res) + '_average_expression.xlsx')
 
 # Save the processed AnnData object
 results_file = resFolder + 'adata_' + celltype + '_res_' + str(res) + '.h5ad'
@@ -108,7 +119,7 @@ DEG_df = sc.get.rank_genes_groups_df(adata, group=None)
 positive_DEG_df = DEG_df[DEG_df['logfoldchanges'] > 0]
 
 # Save the positive DEGs to an Excel file
-positive_DEG_df.to_excel(resExcelPath + celltype + '_' + file_name + '_res_' + str(res) + '_positive_DEG.xlsx')
+positive_DEG_df.to_excel(resExcelPath + celltype + '_res_' + str(res) + '_positive_DEG.xlsx')
 
 ### Compute the average expression of DEGs per cluster ###
 
@@ -120,7 +131,7 @@ average_obs = average_obs.T  # Transpose to match gene index format
 filtered_average_obs = average_obs[average_obs.index.isin(DEG_genes)]
 
 # Save the filtered average expression of DEGs per cluster to an Excel file
-excel_file = resExcelPath + celltype + '_' + file_name + '_res_' + str(res) + '_DEGs_average_expression_per_clusters.xlsx'
+excel_file = resExcelPath + celltype + '_res_' + str(res) + '_DEGs_average_expression_per_clusters.xlsx'
 filtered_average_obs.to_excel(excel_file)
 
 # Save the AnnData object with DEGs
