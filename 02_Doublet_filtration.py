@@ -4,6 +4,7 @@ Script for detecting and filtering doublets in single-cell RNA sequencing data u
 This script loads the concatenated AnnData object generated in 01_Concatination_of_objects.py,
 applies the scVI model for latent representation learning, and uses SOLO to predict doublets.
 The doublet predictions are saved, and the dataset is filtered to retain only singlets.
+
 """
 
 ######### Load the required packages ######### 
