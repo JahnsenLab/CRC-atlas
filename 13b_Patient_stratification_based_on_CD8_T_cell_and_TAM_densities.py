@@ -1,3 +1,12 @@
+"""
+Script for generating four prognostic groups based on CD8 T cell and macrophage densities.
+
+This script merges the high/low groupings for CD8 T cells and macrophages for each patient,
+assigns a combined prognostic group based on their status in both cell types,and exports the results to Excel files.
+It also calculates the number of patients in each prognostic group and provides a summary.
+
+"""
+
 ######### Load the required packages ######### 
 import os
 import pandas as pd
