@@ -42,11 +42,11 @@ sc.settings.set_figure_params(dpi=80, facecolor='white')
 # Change the current working directory to save plots in the correct folder
 os.chdir(resultsPath)
 
-# The file that will store the analysis results
-filename = 'pre-integration_filtered'
+# The file that stores the input object
+input_filename = 'pre-integration_filtered'
 
 # Read the filtered AnnData object after doublet filtration
-adata = sc.read_h5ad(integrationPath + 'adata_' + filename + '.h5ad')
+adata = sc.read_h5ad(integrationPath + 'adata_' + input_filename + '.h5ad')
 
 # Make sure gene names are unique by appending a suffix to duplicate gene names
 adata.var_names_make_unique()
@@ -131,6 +131,5 @@ sc.pp.regress_out(adata, ['total_counts', 'pct_counts_mt', 'pct_counts_ribo'])
 sc.pp.scale(adata, max_value=10)
 
 # Save the final processed AnnData object
-filename = 'pre-integration_quality_control'
-results_file = integrationPath + 'adata_' + filename + '.h5ad'
-adata.write(results_file)
+result_filename = 'pre-integration_quality_control'
+adata.write(integrationPath + 'adata_' + result_filename + '.h5ad')
