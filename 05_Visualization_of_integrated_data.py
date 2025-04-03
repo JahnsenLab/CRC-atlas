@@ -51,7 +51,6 @@ sc.pl.umap(adata, color="leiden",
 
 # Define the filename for saving the updated AnnData object
 filename = 'integrated_umap'
-results_file = integrationPath + 'adata_' + filename + '.h5ad'
 
 # Save the updated AnnData object containing UMAP embeddings and Leiden clustering results
-adata.write(results_file)
+adata.write(integrationPath + 'adata_' + filename + '.h5ad')
