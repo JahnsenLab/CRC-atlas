@@ -1,3 +1,11 @@
+"""
+Script for manually annotating cell clusters in integrated single-cell RNA sequencing data.
+
+This script loads the integrated AnnData object, assigns manual cell type annotations based on Leiden clustering 
+and differentially expressed genes (DEGs), generates UMAP visualizations, and saves the annotated dataset.
+
+"""
+
 ######### Load the required packages ######### 
 import os
 import numpy as np
