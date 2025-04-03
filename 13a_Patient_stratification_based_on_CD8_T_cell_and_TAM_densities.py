@@ -1,3 +1,12 @@
+"""
+Script for stratifying patients into prognostic groups based on CD8 T cell and macrophage densities in single-cell RNA sequencing data.
+
+This script loads the AnnData object containing only tumor data generated in 11_Subset_normal_and_tumor.py, subsets the data by cell type,
+calculates cell counts and fractions per patient and cluster, and performs normalization of cell counts. It groups patients based on normalized cell count data, 
+filters patients based on predefined thresholds, and exports the results to Excel files.
+
+""" 
+
 ######### Load the required packages ######### 
 import scanpy as an
 import os
