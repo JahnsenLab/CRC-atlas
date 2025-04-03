@@ -1,3 +1,13 @@
+"""
+Script for performing quality control (QC) on single-cell RNA sequencing data.
+
+This script loads the  filtered AnnData object generated in 02_Doublet_filtration.py, computes QC metrics,
+identifies low-quality cells using Median Absolute Deviation (MAD) thresholding, and removes outliers.
+It then normalizes the data, selects highly variable genes, and regresses out unwanted sources of variation
+before saving the processed dataset.
+
+"""
+
 ######### Load the required packages ######### 
 import scanpy as sc     
 import os               
