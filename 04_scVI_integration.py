@@ -39,7 +39,7 @@ sc.settings.set_figure_params(dpi=80, facecolor='white')
 os.chdir(resultsPath)  
 
 # Load the AnnData object after pre-integration quality control steps
-adata = an.read_h5ad(filename=integrationPath + "adata_pre-integration_quality_control.h5ad")
+adata = an.read_h5ad(integrationPath + "adata_pre-integration_quality_control.h5ad")
 
 # Setup the scVI model with necessary parameters
 # Here we specify the layer for counts, the batch key (SampleID), and the covariates
@@ -70,8 +70,5 @@ adata.layers["scvi_normalized"] = vae.get_normalized_expression(library_size=1e4
 # Define the filename for saving the updated AnnData object
 filename = 'integrated'  
 
-# Define the full path for saving the integrated AnnData object
-results_file = integrationPath + 'adata_' + filename + '.h5ad'
-
 # Save the updated AnnData object with the latent representation and normalized expression
-adata.write(results_file)
+adata.write(integrationPath + 'adata_' + filename + '.h5ad')
