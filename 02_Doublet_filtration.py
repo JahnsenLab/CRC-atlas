@@ -21,7 +21,7 @@ technicalPath = "/Path/To/Directory/For/Technical/Results/"
 
 
 ######### Code #########
-# The file that will store the analysis results
+# The file that stores the analysis results
 filename = 'pre-integration'
 
 # Read the previously concatenated AnnData object 
@@ -48,10 +48,10 @@ doubletDF['prediction'] = solo.predict(soft=False)  # Gives hard predictions (i.
 doubletDF.to_csv(technicalPath + 'doublet_data.csv')  
 
 # Save the AnnData object with doublet predictions included
-adata.write_h5ad(integrationPath + 'adata_pre-integration_doublet_prediction.h5ad')
+adata.write_h5ad(integrationPath + 'adata_' + filename + '_doublet_prediction.h5ad')
 
 # Filter the AnnData object to retain only singlets (non-doublets)
 adata = adata[adata.obs.prediction == 'singlet']
 
 # Save the filtered AnnData object (only singlets) to a new file
-adata.write_h5ad(integrationPath + 'adata_pre-integration_filtered.h5ad')
+adata.write_h5ad(integrationPath + 'adata_' + filename + '_filtered.h5ad')
