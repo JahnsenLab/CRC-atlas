@@ -1,3 +1,12 @@
+"""
+Script for performing differential abundance analysis using Milo on single-cell RNA sequencing data.
+
+This script loads the per-cell-type AnnData object generated in 08_Subclustering.py, and performs KNN graph construction, neighborhood identification,
+and differential abundance testing using the Milo package. It visualizes results via UMAP and diagnostic plots, and generates 
+summary statistics and plots to assess the differential abundance between specified conditions.
+
+"""
+
 ######### Load the required packages ######### 
 import numpy as np
 import pandas as pd
