@@ -1,3 +1,12 @@
+"""
+Script for integrating single-cell RNA sequencing data using scVI.
+
+This script loads the quality-controlled AnnData object generated in 03_QC_and_filtering.py,
+sets up and trains an scVI model for batch correction and dimensionality reduction,
+extracts the learned latent representation, and saves the integrated dataset.
+
+"""
+
 ######### Load the required packages ######### 
 import scanpy as sc     
 import os               
