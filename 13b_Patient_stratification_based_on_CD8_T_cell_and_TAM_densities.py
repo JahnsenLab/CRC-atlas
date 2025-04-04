@@ -27,20 +27,20 @@ sample = 'Tumor'
 T_NK_ILCs_df = pd.read_excel(groupExcelPath + 'T_NK_ILCs/' + 'T_NK_ILCs_' + sample + '_grouping.xlsx')
 macrophages_df = pd.read_excel(groupExcelPath + 'Macrophages/' + 'Macrophages_' + sample + '_grouping.xlsx')
 
-# Merge the two DataFrames on 'PatientID', creating new columns with suffixes '_T' for T_NK_ILCs and '_M' for Macrophages
+# Merge the two DataFrames on 'PatientID', creating new columns with suffixes '_T' for CD8 T cells and '_M' for Macrophages
 merged_df = pd.merge(T_NK_ILCs_df, macrophages_df, on='PatientID', suffixes=('_T', '_M'))
 
-# A function that creates a new column 'Prognostic_group' based on combinations of high/low grouping for T_NK_ILCs and Macrophages
+# A function that creates a new column 'Prognostic_group' based on combinations of high/low grouping for CD8 T cells and Macrophages
 def get_group(row):
-    # Check different combinations of 'Grouping_T' (T_NK_ILCs) and 'Grouping_M' (Macrophages) to assign the 'Prognostic_group'
+    # Check different combinations of 'Grouping_T' (CD8 T cells) and 'Grouping_M' (Macrophages) to assign the 'Prognostic_group'
     if row['Grouping_T'] == 'high' and row['Grouping_M'] == 'low':
-        return 'T+M-'  # T_NK_ILCs high, Macrophages low
+        return 'CD8hiTAMlow'  # CD8 high, Macrophages low
     elif row['Grouping_T'] == 'high' and row['Grouping_M'] == 'high':
-        return 'T+M+'  # T_NK_ILCs high, Macrophages high
+        return 'CD8hiTAMhi' # CD8 high, Macrophages high
     elif row['Grouping_T'] == 'low' and row['Grouping_M'] == 'low':
-        return 'T-M-'  # T_NK_ILCs low, Macrophages low
+        return 'CD8lowTAMlow'# CD8 low, Macrophages low
     elif row['Grouping_T'] == 'low' and row['Grouping_M'] == 'high':
-        return 'T-M+'  # T_NK_ILCs low, Macrophages high
+        return 'CD8lowTAMhi' # CD8 low, Macrophages high
     else:
         return 'Unknown'  # Any unexpected combination
 
