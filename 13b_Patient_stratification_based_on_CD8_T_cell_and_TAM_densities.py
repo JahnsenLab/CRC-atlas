@@ -24,11 +24,11 @@ sample = 'Tumor'
 
 ### Load the files containing the grouping for each cell type ###
 # Read in the grouping data for T_NK_ILCs and Macrophages cell types from Excel files
-T_NK_ILCs_df = pd.read_excel(groupExcelPath + 'T_NK_ILCs/' + 'T_NK_ILCs_' + sample + '_grouping.xlsx')
+CD8_T_cells_df = pd.read_excel(groupExcelPath + 'T_NK_ILCs/' + 'T_NK_ILCs_' + sample + '_grouping.xlsx')
 macrophages_df = pd.read_excel(groupExcelPath + 'Macrophages/' + 'Macrophages_' + sample + '_grouping.xlsx')
 
 # Merge the two DataFrames on 'PatientID', creating new columns with suffixes '_T' for CD8 T cells and '_M' for Macrophages
-merged_df = pd.merge(T_NK_ILCs_df, macrophages_df, on='PatientID', suffixes=('_T', '_M'))
+merged_df = pd.merge(CD8_T_cells_df, macrophages_df, on='PatientID', suffixes=('_T', '_M'))
 
 # A function that creates a new column 'Prognostic_group' based on combinations of high/low grouping for CD8 T cells and Macrophages
 def get_group(row):
