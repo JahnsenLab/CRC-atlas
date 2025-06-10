@@ -54,7 +54,7 @@ adata = an.read_h5ad(integrationPath + 'adata_' + input_filename + '.h5ad')
 
 # Perform differential gene expression analysis
 # This ranks genes based on their expression differences across cell types
-sc.tl.rank_genes_groups(adata, groupby='leiden', method='wilcoxon', key='DEGs')
+sc.tl.rank_genes_groups(adata, groupby='leiden', method='wilcoxon')
 
 # Extract differentially expressed genes (DEGs) into a dataframe
 DEG_df = sc.get.rank_genes_groups_df(adata, group=None)
