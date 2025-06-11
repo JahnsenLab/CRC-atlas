@@ -7,10 +7,10 @@ applies Leiden clustering, and saves the updated dataset along with UMAP visuali
 
 """
 
-######### Load the required packages ######### 
-import scanpy as sc     
-import os               
-import adata as an
+######### Load the required packages #########     
+import os   
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
