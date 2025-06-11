@@ -8,10 +8,10 @@ filters patients based on predefined thresholds, and exports the results to Exce
 """ 
 
 ######### Load the required packages ######### 
-import scanpy as an
 import os
-import pandas as pd
-import numpy as np
+import anndata as an # version 0.10.5.post1 
+import pandas as pd # version 2.2.0
+import numpy as np # version 1.26.6
 
 
 ######### Specify the paths needed #########
