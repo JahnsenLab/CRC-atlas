@@ -7,7 +7,7 @@ subsets the data into tumor and normal cell populations based on the 'SampleType
 """
 
 ######### Load the required packages ######### 
-import anndata as an
+import anndata as an # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
