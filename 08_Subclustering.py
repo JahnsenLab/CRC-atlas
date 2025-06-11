@@ -12,9 +12,9 @@ DEG analysis using the Wilcoxon test, saving results in Excel files and updating
 ######### Load the required packages ######### 
 
 import os
-import scanpy as sc
-import anndata as an
-import pandas as pd
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
+import pandas as pd # version 2.2.0
 
 ######### Specify the paths needed #########
 
