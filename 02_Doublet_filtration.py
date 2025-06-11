@@ -9,8 +9,9 @@ The doublet predictions are saved, and the dataset is filtered to retain only si
 
 ######### Load the required packages ######### 
 import os
-import scanpy as sc
-import anndata as ad
+import scvi # version 1.1.1
+import scanpy as sc # version 1.9.8
+import anndata as ad # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 # Path to the directory where integrated .h5ad files are stored and will be saved
