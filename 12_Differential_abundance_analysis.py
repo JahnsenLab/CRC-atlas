@@ -8,17 +8,17 @@ summary statistics and plots to assess the differential abundance between specif
 """
 
 ######### Load the required packages ######### 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import scanpy as sc
-import milopy
-import milopy.utils
-import milopy.plot as milopl
-import matplotlib
 import os
-import anndata as an
+import numpy as np # version 1.26.6
+import pandas as pd # version 2.2.0
+import seaborn as sns # version 0.13.2
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
+import milopy # version 0.1.1
+import milopy.utils # version 0.1.1
+import milopy.plot as milopl # version 0.1.1
+import matplotlib.pyplot as plt # version 0.1.1
+import matplotlib # version 3.8.3
 
 
 ######### Specify the paths needed #########
