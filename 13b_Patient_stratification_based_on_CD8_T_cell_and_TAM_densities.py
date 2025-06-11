@@ -9,7 +9,7 @@ It also calculates the number of patients in each prognostic group and provides 
 
 ######### Load the required packages ######### 
 import os
-import pandas as pd
+import pandas as pd # version 2.2.0
 
 ######### Specify the paths needed #########
 
