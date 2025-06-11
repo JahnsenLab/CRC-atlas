@@ -2,8 +2,8 @@
 Script for exporting cell annotations for a specific cell type and clustering resolution.
 
 This script loads the AnnData object for a specified cell type and clustering resolution, generated in 08_Subclustering.py,
-extracts the Leiden cluster assignments, and creates an annotation DataFrame. The DataFrame includes cell identifiers,
-cluster assignments, and the main cell type, and it is then saved as a CSV file for further analysis in 10_Add_metadata_and_cell_type_annotation_to_main_object.py
+extracts the Leiden cluster assignments, and creates an annotation DataFrame. The DataFrame includes cell identifiers,cluster assignments,
+and the main cell type, and it is then saved as a CSV file for further analysis in 10_Add_metadata_and_cell_type_annotation_to_main_object.py
 
 """
 
