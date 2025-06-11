@@ -7,11 +7,11 @@ extracts the learned latent representation, and saves the integrated dataset.
 
 """
 
-######### Load the required packages ######### 
-import scanpy as sc     
+######### Load the required packages #########   
 import os               
-import scvi 
-import adata as an
+import scvi # version 1.1.1
+import scanpy as sc # version 1.9.8   
+import anndata as an # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
