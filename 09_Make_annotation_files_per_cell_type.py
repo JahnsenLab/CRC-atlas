@@ -10,10 +10,10 @@ cluster assignments, and the main cell type, and it is then saved as a CSV file 
 ######### Load the required packages ######### 
 
 import os
-import scanpy as sc
-import anndata as an
-import pandas as pd
-import numpy as np
+import scanpy as sc # version 1.9.8        
+import anndata as an # version 0.10.5.post1
+import pandas as pd # version 2.2.0
+import numpy as np # verion 1.26.6
 
 ######### Specify the paths needed #########
 
