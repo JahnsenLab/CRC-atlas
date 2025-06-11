@@ -9,8 +9,8 @@ the concatenated object to a new .h5ad file.
 
 ######### Load the required packages ######### 
 import os
-import scanpy as sc
-import anndata as ad
+import scanpy as sc # version 1.9.8
+import anndata as ad # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
