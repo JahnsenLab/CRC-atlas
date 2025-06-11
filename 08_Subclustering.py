@@ -88,7 +88,7 @@ sc.pl.umap(adata, color="Paper", frameon=False,
     save='_' + celltype + '_paper' + '_res_' + str(res) + '.pdf')
 
 
-### Compute average and fraction gene expression per cluster ###
+### Compute average gene expression per cluster ###
 # Extract gene names and clusters
 gene_ids = adata.raw.var.index.values
 clusters = adata.obs['leiden'].cat.categories
