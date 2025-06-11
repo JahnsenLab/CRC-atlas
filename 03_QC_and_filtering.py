@@ -8,12 +8,12 @@ before saving the processed dataset.
 
 """
 
-######### Load the required packages ######### 
-import scanpy as sc     
-import os               
-import seaborn as sns  
-import numpy as np     
-from scipy.stats import median_abs_deviation 
+######### Load the required packages #########   
+import os  
+import scanpy as sc # version 1.9.8
+import seaborn as sns # version 0.13.2
+import numpy as np # version 1.26.6     
+from scipy.stats import median_abs_deviation # version 1.12.0
 
 ######### Specify the paths needed #########
 
