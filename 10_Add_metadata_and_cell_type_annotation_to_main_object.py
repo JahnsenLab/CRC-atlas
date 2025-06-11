@@ -11,9 +11,9 @@ and saves the updated AnnData object with the added annotations and metadata.
 
 ######### Load the required packages ######### 
 import os
-import pandas as pd
-import scanpy as sc
-import anndata as an
+import pandas as pd # version 1.26.6
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
