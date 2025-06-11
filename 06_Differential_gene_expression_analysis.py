@@ -10,11 +10,12 @@ and saves the results as an Excel file. The updated AnnData object is also saved
 
 ######### Load the required packages ######### 
 import os
+import openpyxl # version 3.1.2
 import numpy as np # version 1.26.6
 import pandas as pd # version 2.2.0
 import scanpy as sc # version 1.9.8
 import anndata as an # version 0.10.5.post1
-import openpyxl # version 3.1.2
+
 
 ######### Specify the paths needed #########
 
