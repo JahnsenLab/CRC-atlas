@@ -2,7 +2,7 @@
 Script for performing differential gene expression analysis on integrated single-cell RNA sequencing data.
 
 This script loads the integrated and clustered AnnData object generated in 05_Visualization_of_integrated_data.py,
-performs DGE analysis using the Wilcoxon rank-sum test, extracts differentially expressed genes (DEGs),
+performs DEG analysis using the Wilcoxon rank-sum test, extracts differentially expressed genes (DEGs),
 and saves the results as an Excel file. The updated AnnData object is also saved with DEG results.
 
 """
@@ -10,11 +10,11 @@ and saves the results as an Excel file. The updated AnnData object is also saved
 
 ######### Load the required packages ######### 
 import os
-import numpy as np
-import pandas as pd
-import scanpy as sc
-import anndata as an
-import openpyxl
+import numpy as np # version 1.26.6
+import pandas as pd # version 2.2.0
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
+import openpyxl # version 3.1.2
 
 ######### Specify the paths needed #########
 
