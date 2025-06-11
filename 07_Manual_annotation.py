@@ -8,11 +8,11 @@ and differentially expressed genes (DEGs), generates UMAP visualizations, and sa
 
 ######### Load the required packages ######### 
 import os
-import numpy as np
-import pandas as pd
-import scanpy as sc
-import anndata as an
-import openpyxl
+import openpyxl # version 3.1.2
+import numpy as np # version 1.26.6
+import pandas as pd # version 2.2.0
+import scanpy as sc # version 1.9.8
+import anndata as an # version 0.10.5.post1
 
 ######### Specify the paths needed #########
 
