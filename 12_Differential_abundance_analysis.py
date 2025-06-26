@@ -30,7 +30,7 @@ objectPath = "Path/To/Your/Anndata/Object/"
 resultsPath = "Path/To/Store/Results/"  
 
 ######### Define cell type of interest #########
-celltype = 'Cell_type_of_interest'  # The cell type analyzed, used for creating cell type specific folders and file name
+celltype = 'Cell_type_of_interest'  # The cell type analyzed, used for creating cell type-specific folders and file name
 
 ######### Spesify what to analyse (based on metadata) #########
 
@@ -62,7 +62,7 @@ k = 10  # Number of neighbors for KNN graph
 d = 30  # Number of principal components to use
 
 ### LOAD THE MAIN OBJECT ###
-adata = an.read_h5ad(objectPath + 'adata_' + celltype + '.h5ad')  # Read the AnnData object
+adata = an.read_h5ad(objectPath + 'adata_' + celltype + '.h5ad')  # Read the cell type-specific AnnData object
 
 # Visualize the UMAP of the data, colored by annotation and SampleType
 sc.pl.umap(adata, color=[annotationColumn], legend_loc="on data")
